@@ -4,7 +4,6 @@ import com.backend.models.Account;
 import com.backend.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 

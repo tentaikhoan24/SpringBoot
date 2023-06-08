@@ -16,17 +16,22 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping("/createProduct")
-    public Boolean createProduct(@RequestBody Product product) {
+    public Boolean createProduct(@ModelAttribute Product product) {
         productService.createOrUpdate(product);
         return true;
     }
 
-    @GetMapping("/products")
+    @GetMapping("/allProducts")
     public List<Product> getAllProduct() {
         List<Product> list = productService.getAllProduct();
         return list;
     }
 
+    @GetMapping("/products")
+    public List<Product> getProduct() {
+        List<Product> list = productService.getProduct();
+        return list;
+    }
     @GetMapping("/product/{id}")
     public Product getProduct(@PathVariable Long id) {
         return productService.getProduct(id);
@@ -37,15 +42,21 @@ public class ProductController {
         return productService.eidtProduct(id);
     }
 
-    @DeleteMapping("/product/{id}")
+    @DeleteMapping("/deleteProduct/{id}")
     public Boolean deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return true;
     }
 
-    @PutMapping("/product/{id}")
-    public Boolean updateProduct(@PathVariable Long id, @RequestBody Product product) {
-        //code
+    @GetMapping("/softDeleteProduct/{id}")
+    public Boolean softDeleteProduct(@PathVariable Long id) {
+        productService.softDeleteProduct(id);
+        return true;
+    }
+
+    @PutMapping("/updateProduct")
+    public Boolean updateProduct(@ModelAttribute Product product) {
+        productService.createOrUpdate(product);
         return true;
     }
 }

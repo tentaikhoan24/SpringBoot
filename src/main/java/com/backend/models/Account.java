@@ -13,9 +13,9 @@ public class Account {
 
     private String name;
 
-    private String userName;
+    private String user_name;
 
-    private String password;
+    private String pass;
 
     private Long role_user;
 
@@ -36,19 +36,19 @@ public class Account {
     }
 
     public String getUserName() {
-        return userName;
+        return user_name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserName(String user_name) {
+        this.user_name = user_name;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPassWord(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public Long getRole_user() {

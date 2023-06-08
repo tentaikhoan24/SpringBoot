@@ -2,6 +2,7 @@ package com.backend.services;
 
 import com.backend.models.Product;
 import com.backend.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService{
 
+    @Autowired
     private ProductRepository productRepository;
     @Override
     public void createOrUpdate(Product product) {
@@ -22,6 +24,12 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
+    public List<Product> getProduct() {
+        List<Product> list = productRepository.getProduct();
+        return list;
+    }
+
+    @Override
     public Product getProduct(Long id) {
         return productRepository.findById(id).get();
     }
@@ -29,6 +37,11 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
+    }
+
+    @Override
+    public void softDeleteProduct(Long id) {
+        productRepository.softDelete(id);
     }
 
     @Override

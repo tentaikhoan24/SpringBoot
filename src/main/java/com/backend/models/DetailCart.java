@@ -17,7 +17,7 @@ public class DetailCart {
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 
-    private int amountProduct;
+    private int amount_product;
 
     public Long getId() {
         return id;
@@ -44,10 +44,10 @@ public class DetailCart {
     }
 
     public int getAmountProduct() {
-        return amountProduct;
+        return amount_product;
     }
 
-    public void setAmountProduct(int amountProduct) {
-        this.amountProduct = amountProduct;
+    public void setAmountProduct(int amount_product) {
+        this.amount_product = amount_product;
     }
 }

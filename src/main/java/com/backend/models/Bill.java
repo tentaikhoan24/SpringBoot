@@ -20,7 +20,7 @@ public class Bill {
 
     private LocalDateTime date;
 
-    private Long totalBill;
+    private Long total_bill;
 
     private Integer paid;
 
@@ -57,10 +57,10 @@ public class Bill {
     }
 
     public Long getTotalBill() {
-        return totalBill;
+        return total_bill;
     }
 
-    public void setTotalBill(Long totalBill) {
-        this.totalBill = totalBill;
+    public void setTotalBill(Long total_bill) {
+        this.total_bill = total_bill;
     }
 }

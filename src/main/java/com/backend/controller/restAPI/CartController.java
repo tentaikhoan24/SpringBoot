@@ -16,7 +16,7 @@ public class CartController {
     private CartService cartService;
 
     @PostMapping("/createCart")
-    public Boolean createCart(@RequestBody Cart cart) {
+    public Boolean createCart(@ModelAttribute Cart cart) {
         cartService.createOrUpdate(cart);
         return true;
     }
@@ -43,9 +43,9 @@ public class CartController {
         return cartService.edit(id);
     }
 
-    @PutMapping("/cart/{id}")
-    public Boolean updateCart(@PathVariable Long id, @RequestBody Cart cart) {
-        //code
+    @PutMapping("/updateCart")
+    public Boolean updateCart( @ModelAttribute Cart cart) {
+        cartService.createOrUpdate(cart);
         return true;
     }
 }

@@ -9,9 +9,13 @@ public interface ProductService {
 
     public List<Product> getAllProduct();
 
+    public List<Product> getProduct();
+
     public Product getProduct(Long id);
 
     public void deleteProduct(Long id);
+
+    public void softDeleteProduct(Long id);
 
     public Product eidtProduct(Long id);
 }

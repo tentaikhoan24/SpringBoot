@@ -16,7 +16,7 @@ public class BillController {
     private BillService billService;
 
     @PostMapping("/createBill")
-    public Boolean createBill(@RequestBody Bill bill) {
+    public Boolean createBill(@ModelAttribute Bill bill) {
         billService.createOrUpdate(bill);
         return true;
     }
@@ -42,9 +42,9 @@ public class BillController {
         return billService.editBill(id);
     }
 
-    @PutMapping("/bill/{id}")
-    public Boolean updateBill(@PathVariable Long id, @RequestBody Bill bill) {
-        //code
+    @PutMapping("/updateBill")
+    public Boolean updateBill(@ModelAttribute Bill bill) {
+        billService.createOrUpdate(bill);
         return true;
     }
 }

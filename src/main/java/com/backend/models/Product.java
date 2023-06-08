@@ -9,9 +9,9 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProduct;
+    private Long id;
 
-    private String nameProduct;
+    private String name_product;
 
     private Long price;
 
@@ -19,22 +19,22 @@ public class Product {
 
     private Long amount;
 
-    private Long productType;
+    private Long product_type;
 
     public Long getIdProduct() {
-        return idProduct;
+        return id;
     }
 
     public void setIdProduct(Long idProduct) {
-        this.idProduct = idProduct;
+        this.id = idProduct;
     }
 
-    public String getNameSP() {
-        return nameProduct;
+    public String getNameProduct() {
+        return name_product;
     }
 
-    public void setNameSP(String nameProduct) {
-        this.nameProduct = nameProduct;
+    public void setNameProduct(String name_product) {
+        this.name_product = name_product;
     }
 
     public Long getPrice() {
@@ -62,10 +62,10 @@ public class Product {
     }
 
     public Long getProductType() {
-        return productType;
+        return product_type;
     }
 
-    public void setProductType(Long productType) {
-        this.productType = productType;
+    public void setProductType(Long product_type) {
+        this.product_type = product_type;
     }
 }

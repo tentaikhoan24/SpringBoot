@@ -9,6 +9,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+//@RequestMapping( value = "/api/v1/", produces = {"application/json", "application/xml"}, consumes = {"application/x-www-form-urlencoded"})
 @RequestMapping("/api/v1/")
 public class AccountController {
 
@@ -16,7 +17,7 @@ public class AccountController {
     private AccountService accountService;
 
     @PostMapping("/registration")
-    public Boolean createAccount(@RequestBody Account account) {
+    public Boolean createAccount(@ModelAttribute Account account) {
         accountService.createOrUpdateAccount(account);
         return true;
     }
@@ -37,14 +38,9 @@ public class AccountController {
         return accountService.editAccount(id);
     }
 
-    @PutMapping("/updateAccount/{id}")
-    public Boolean updateAccount(@PathVariable Long id, @RequestBody Account account) {
-        Account accountOrigin = accountService.getAccount(id);
-        accountOrigin.setName(account.getName());
-        accountOrigin.setPassWord(account.getPassword());
-        accountOrigin.setUserName(account.getPassword());
-        accountOrigin.setRole_user(account.getRole_user());
-        accountService.createOrUpdateAccount(accountOrigin);
+    @PutMapping("/updateAccount")
+    public Boolean updateAccount(@ModelAttribute Account account) {
+        accountService.createOrUpdateAccount(account);
         return true;
     }
 

@@ -16,7 +16,7 @@ public class DetailCartController {
     private DetailCartService detailCartService;
 
     @PostMapping("/createDetailCart")
-    public Boolean createDetailCart(@RequestBody DetailCart detailCart) {
+    public Boolean createDetailCart(@ModelAttribute DetailCart detailCart) {
         detailCartService.createOrUpdate(detailCart);
         return true;
     }
@@ -43,9 +43,9 @@ public class DetailCartController {
         return detailCartService.editDetailCart(id);
     }
 
-    @PutMapping("/updateDetailCart/{id}")
-    public Boolean updateDetailCart(@PathVariable Long id, @RequestBody DetailCart detailCart) {
-        //code
+    @PutMapping("/updateDetailCart")
+    public Boolean updateDetailCart(@ModelAttribute DetailCart detailCart) {
+        detailCartService.createOrUpdate(detailCart);
         return true;
     }
 }
