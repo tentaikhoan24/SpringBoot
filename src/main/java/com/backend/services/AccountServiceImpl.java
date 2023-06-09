@@ -37,4 +37,9 @@ public class AccountServiceImpl implements AccountService{
     public Account editAccount(Long id) {
         return accountRepository.getOne(id);
     }
+
+    @Override
+    public Integer isExitsAccount(String user_name, String pass) {
+        return accountRepository.isExitsAccount(user_name, pass);
+    }
 }

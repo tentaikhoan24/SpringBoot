@@ -18,10 +18,22 @@ public class AccountController {
 
     @PostMapping("/registration")
     public Boolean createAccount(@ModelAttribute Account account) {
+        int isExits = accountService.isExitsAccount(account.getUser_name(),account.getPass());
+        if (isExits > 0) {
+            return false;
+        }
         accountService.createOrUpdateAccount(account);
         return true;
     }
 
+    @PostMapping("/login")
+    public Boolean isExistAccount(@ModelAttribute Account account) {
+        int isExits = accountService.isExitsAccount(account.getUser_name(),account.getPass());
+        if (isExits <= 0) {
+            return false;
+        }
+        return true;
+    }
     @GetMapping("/accounts")
     public List<Account> getAllAccount() {
     List<Account> list = accountService.getAllAccount();

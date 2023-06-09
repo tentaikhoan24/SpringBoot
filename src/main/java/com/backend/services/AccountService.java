@@ -15,4 +15,6 @@ public interface AccountService {
     public Account getAccount(Long id);
 
     public Account editAccount(Long id);
+
+    public Integer isExitsAccount(String uer_name, String pass);
 }

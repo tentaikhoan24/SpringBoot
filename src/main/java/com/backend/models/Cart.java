@@ -1,5 +1,6 @@
 package com.backend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ public class Cart {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Account account;
 
     private Integer status;

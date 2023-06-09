@@ -1,5 +1,6 @@
 package com.backend.services;
 
+import com.backend.models.DTO.DetailCartDTO;
 import com.backend.models.DetailCart;
 import com.backend.repository.DetailCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ public class DetailCartServiceImpl implements DetailCartService{
 
     @Autowired
     private DetailCartRepository detailCartRepository;
+
     @Override
     public void createOrUpdate(DetailCart detailCart) {
         detailCartRepository.save(detailCart);
@@ -36,5 +38,10 @@ public class DetailCartServiceImpl implements DetailCartService{
     @Override
     public DetailCart editDetailCart(Long id) {
         return detailCartRepository.getOne(id);
+    }
+
+    @Override
+    public List<DetailCartDTO> showDetailCartByIdCart(Long id) {
+        return detailCartRepository.showDetailCartByIdCart(id);
     }
 }

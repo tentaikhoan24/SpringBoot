@@ -1,6 +1,7 @@
 package com.backend.controller.restAPI;
 
 import com.backend.models.Cart;
+import com.backend.services.AccountService;
 import com.backend.services.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,8 @@ public class CartController {
 
     @Autowired
     private CartService cartService;
+    @Autowired
+    private AccountService accountService;
 
     @PostMapping("/createCart")
     public Boolean createCart(@ModelAttribute Cart cart) {
@@ -38,6 +41,11 @@ public class CartController {
         return true;
     }
 
+    @GetMapping("/cartActive/{id}")
+    public Long idCartActive(@PathVariable Long id) {
+        return cartService.cartActive(id);
+    }
+
     @GetMapping("/editCart/{id}")
     public Cart editCart(@PathVariable Long id) {
         return cartService.edit(id);
@@ -47,5 +55,11 @@ public class CartController {
     public Boolean updateCart( @ModelAttribute Cart cart) {
         cartService.createOrUpdate(cart);
         return true;
+    }
+
+    @GetMapping("/setStatus/{id}")
+    public Long setStatus(@PathVariable Long id) {
+        cartService.setStatus(id);
+        return cartService.cartActive(id);
     }
 }

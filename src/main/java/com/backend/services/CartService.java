@@ -15,4 +15,8 @@ public interface CartService {
     public void delete(Long id);
 
     public Cart edit(Long id);
+
+    public Long cartActive(Long id);
+
+    public void setStatus(Long id);
 }

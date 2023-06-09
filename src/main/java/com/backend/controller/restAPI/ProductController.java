@@ -48,7 +48,7 @@ public class ProductController {
         return true;
     }
 
-    @GetMapping("/softDeleteProduct/{id}")
+    @DeleteMapping("/softDeleteProduct/{id}")
     public Boolean softDeleteProduct(@PathVariable Long id) {
         productService.softDeleteProduct(id);
         return true;
