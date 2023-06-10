@@ -42,4 +42,9 @@ public class AccountServiceImpl implements AccountService{
     public Integer isExitsAccount(String user_name, String pass) {
         return accountRepository.isExitsAccount(user_name, pass);
     }
+
+    @Override
+    public Integer idAccount(String user_name, String pass) {
+        return accountRepository.idAccount(user_name, pass);
+    }
 }

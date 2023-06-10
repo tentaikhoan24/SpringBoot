@@ -27,12 +27,12 @@ public class AccountController {
     }
 
     @PostMapping("/login")
-    public Boolean isExistAccount(@ModelAttribute Account account) {
+    public Integer isExistAccount(@ModelAttribute Account account) {
         int isExits = accountService.isExitsAccount(account.getUser_name(),account.getPass());
         if (isExits <= 0) {
-            return false;
+            return 0;
         }
-        return true;
+        return accountService.idAccount(account.getUser_name(),account.getPass());
     }
     @GetMapping("/accounts")
     public List<Account> getAllAccount() {

@@ -12,4 +12,7 @@ public interface AccountRepository extends JpaRepository<Account, Long>{
 
     @Query(value = "SELECT count(*) FROM account c WHERE c.user_name = :user_name and c.pass = :pass", nativeQuery=true)
     Integer isExitsAccount(@Param("user_name")String user_name, @Param("pass") String pass );
+
+    @Query(value = "SELECT c.id FROM account c WHERE c.user_name = :user_name and c.pass = :pass", nativeQuery=true)
+    Integer idAccount(@Param("user_name")String user_name, @Param("pass") String pass );
 }
